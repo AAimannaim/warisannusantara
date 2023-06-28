@@ -1,0 +1,54 @@
+<div class="modal fade" id="collectionModal" tabindex="-1" role="dialog" aria-labelledby="collectionModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="collectionModalLabel">{{ selectedCollectionDetails.name }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="collection-image-container">
+                    <img [src]="'assets/images/' + selectedCollectionDetails.image" class="collection-image"
+                        [alt]="selectedCollectionDetails.name">
+                </div>
+                <div class="collection-details-container">
+                    <p><strong>Category:</strong> {{ selectedCollectionDetails.category }}</p>
+                    <p><strong>Description:</strong> {{ selectedCollectionDetails.description }}</p>
+                    <p><strong>Date:</strong> {{ selectedCollectionDetails.date }}</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="updateCollection()">Update</button>
+            </div>
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteCollection()">Delete</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="page-title" id="view-collection">{{ selectedCategory | uppercase }} Collections</h1>
+    <div class="collection-list">
+        <div class="collection-card" *ngFor="let collection of selectedCollection(selectedCategory)">
+            <div class="image-container">
+                <img [src]="'assets/images/' + collection.gambar" class="collection-img" [alt]="collection.nama">
+                <div class="overlay"></div>
+            </div>
+            <div class="collection-details">
+                <h3 class="collection-name">{{ collection.nama }}</h3>
+                <p class="collection-category">Category: {{ collection.kategori }}</p>
+                <p class="collection-description">{{ collection.description }}</p>
+                <p class="collection-date">Date: {{ collection.date }}</p>
+                <button class="view-details-button" data-bs-toggle="modal" data-bs-target="#collectionModal"
+                    (click)="selectCollectionDetails(collection)">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

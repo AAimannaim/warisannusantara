@@ -1,0 +1,31 @@
+<div class="container">
+    <h3>Please provide the required details for the new item to ensure accurate documentation and representation</h3>
+    <form (submit)="onSubmit($event)">
+        <div class="mb-3">
+          <label for="category" class="form-label">Category</label>
+          <select class="form-select" id="category" name="category" required>
+            <option value="weapons and arms">Weapon and arms</option>
+            <option value="household items">Household items</option>
+            <option value="textiles">Textiles</option>
+            <option value="carving and woodworks">Carving and woodworks</option>
+            </select>
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control" id="description" name="description" rows="4" placeholder="Enter description" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="date" class="form-label">Date</label>
+          <input type="text" class="form-control" id="date" name="date" required>
+        </div>
+        <div class="mb-3">
+            <label for="gambar" class="form-label">Picture</label>
+            <input type="text" class="form-control" id="gambar" name="gambar" required>
+          </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+</div>
